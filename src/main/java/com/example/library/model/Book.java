@@ -6,9 +6,9 @@ import lombok.*;
 @Data
 @Entity
 @ToString
-@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class Book extends BaseEntity {
 
     @Column(name = "title", nullable = false)
