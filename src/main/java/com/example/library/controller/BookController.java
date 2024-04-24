@@ -26,9 +26,7 @@ public class BookController {
                                              @RequestParam(required = false, defaultValue = "") String author,
                                              @RequestParam(required = false, defaultValue = "0") int page,
                                              @RequestParam(required = false, defaultValue = "5") int size
-
     ) {
-
         Page<Book> pageData = bookService.getAllBy(title, author, page, size);
         return ResponseListDTO.<List<Book>>builder()
                 .currentPage(pageData.getNumber())

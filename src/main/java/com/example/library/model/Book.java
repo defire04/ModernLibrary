@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
+
 public class Book extends BaseEntity {
 
     @Column(name = "title", nullable = false)
@@ -30,5 +31,12 @@ public class Book extends BaseEntity {
     private boolean available;
 
 
+    public Book(String title, String author, int publicationYear, String genre, double price) {
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+        this.genre = genre;
+        this.price = price;
 
+    }
 }

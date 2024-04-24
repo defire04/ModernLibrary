@@ -21,7 +21,4 @@ public class ResponseListDTO<T> extends ResponseDTO<T> {
     private long totalPages;
 
     private long size;
-
-
-
 }

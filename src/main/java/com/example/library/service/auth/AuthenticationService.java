@@ -20,7 +20,6 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
-
     @PostConstruct
     private void init() {
         String testPassword = "1234";
@@ -46,8 +45,6 @@ public class AuthenticationService {
         System.out.println(librarianToken);
         System.out.println(adminToken);
     }
-
-
     public JwtAuthenticationResponse signUp(SignUpRequest request) {
 
         User user = User.builder()
@@ -61,8 +58,6 @@ public class AuthenticationService {
         String jwt = jwtService.generateToken(user);
         return new JwtAuthenticationResponse(jwt);
     }
-
-
     public JwtAuthenticationResponse signIn(SignInRequest request) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 request.getUsername(),
