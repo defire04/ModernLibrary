@@ -1,7 +1,8 @@
-package com.example.library.service;
+package com.example.library.service.book.imp;
 
 import com.example.library.model.Book;
 import com.example.library.repository.BookRepository;
+import com.example.library.service.book.IBookService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BookService {
+public class BookService implements IBookService {
 
     private final BookRepository bookRepository;
 

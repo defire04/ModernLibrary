@@ -3,7 +3,8 @@ package com.example.library.controller;
 import com.example.library.dto.auth.JwtAuthenticationResponse;
 import com.example.library.dto.auth.SignInRequest;
 import com.example.library.dto.auth.SignUpRequest;
-import com.example.library.service.auth.AuthenticationService;
+import com.example.library.service.auth.IAuthenticationService;
+import com.example.library.service.auth.imp.AuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Tag(name = "Authentication")
 public class AuthController {
-    private final AuthenticationService authenticationService;
+    private final IAuthenticationService authenticationService;
 
     @Operation(summary = "Registration")
     @PostMapping("/sign-up")

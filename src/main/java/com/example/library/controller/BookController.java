@@ -3,7 +3,8 @@ package com.example.library.controller;
 import com.example.library.dto.response.ResponseDTO;
 import com.example.library.dto.response.ResponseListDTO;
 import com.example.library.model.Book;
-import com.example.library.service.BookService;
+import com.example.library.service.book.IBookService;
+import com.example.library.service.book.imp.BookService;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ import java.util.List;
 @RequestMapping("/books")
 public class BookController {
 
-    private final BookService bookService;
+    private final IBookService bookService;
 
     public BookController(BookService bookService) {
         this.bookService = bookService;

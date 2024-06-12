@@ -1,6 +1,10 @@
 package com.example.library.model;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 @Data
@@ -30,6 +34,10 @@ public class Book extends BaseEntity {
     @Column(name = "available")
     private boolean available;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User owner;
+
 
     public Book(String title, String author, int publicationYear, String genre, double price) {
         this.title = title;
@@ -37,6 +45,6 @@ public class Book extends BaseEntity {
         this.publicationYear = publicationYear;
         this.genre = genre;
         this.price = price;
-
+        this.available = true;
     }
 }

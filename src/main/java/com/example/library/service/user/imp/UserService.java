@@ -1,7 +1,8 @@
-package com.example.library.service.auth;
+package com.example.library.service.user.imp;
 
 import com.example.library.model.User;
 import com.example.library.repository.UserRepository;
+import com.example.library.service.user.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,9 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserService implements IUserService {
     private final UserRepository repository;
-
 
 
     @Transactional
