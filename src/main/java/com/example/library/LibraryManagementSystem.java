@@ -1,17 +1,24 @@
 package com.example.library;
 
 import com.example.library.model.Book;
-import com.example.library.model.ConcreteBook;
-import com.example.library.model.ExternalLibraryBook;
-import com.example.library.model.ExternalLibraryBookAdapter;
+import com.example.library.model.BookCollection;
+import com.example.library.model.BookComponent;
 
 public class LibraryManagementSystem {
     public static void main(String[] args) {
-        Book book = new ConcreteBook("1984", "George Orwell");
-        System.out.println("ConcreteBook: " + book.getDetails());
+        BookComponent book1 = new Book("1984", "George Orwell");
+        BookComponent book2 = new Book("Sapiens", "Yuval Noah Harari");
 
-        ExternalLibraryBook externalLibraryBook = new ExternalLibraryBook("Sapiens", "Yuval Noah Harari");
-        Book adapterBook = new ExternalLibraryBookAdapter(externalLibraryBook);
-        System.out.println("AdapterBook: " + adapterBook.getDetails());
+        BookCollection fictionCollection = new BookCollection("Fiction Collection");
+        fictionCollection.add(book1);
+
+        BookCollection nonFictionCollection = new BookCollection("Non-Fiction Collection");
+        nonFictionCollection.add(book2);
+
+        BookCollection library = new BookCollection("Library");
+        library.add(fictionCollection);
+        library.add(nonFictionCollection);
+
+        System.out.println(library.getDetails());
     }
 }

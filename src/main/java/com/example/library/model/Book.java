@@ -1,9 +1,21 @@
 package com.example.library.model;
 
-public interface Book {
-    String getTitle();
+import lombok.Getter;
+import lombok.Setter;
 
-    String getAuthor();
+@Getter
+@Setter
+public class Book implements BookComponent {
+    private String title;
+    private String author;
 
-    String getDetails();
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+    }
+
+    @Override
+    public String getDetails() {
+        return title + " by " + author;
+    }
 }
