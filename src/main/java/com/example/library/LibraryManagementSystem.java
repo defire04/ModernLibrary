@@ -1,24 +1,25 @@
 package com.example.library;
 
 import com.example.library.model.Book;
-import com.example.library.model.BookCollection;
-import com.example.library.model.BookComponent;
+import com.example.library.model.FictionBook;
+import com.example.library.model.NonFictionBook;
+import com.example.library.service.BookService;
+import com.example.library.service.FictionBookService;
+import com.example.library.service.NonFictionBookService;
+
 
 public class LibraryManagementSystem {
     public static void main(String[] args) {
-        BookComponent book1 = new Book("1984", "George Orwell");
-        BookComponent book2 = new Book("Sapiens", "Yuval Noah Harari");
+        BookService fictionBookService = new FictionBookService();
+        BookService nonFictionBookService = new NonFictionBookService();
 
-        BookCollection fictionCollection = new BookCollection("Fiction Collection");
-        fictionCollection.add(book1);
+        Book fictionBook = new FictionBook(fictionBookService);
+        Book nonFictionBook = new NonFictionBook(nonFictionBookService);
 
-        BookCollection nonFictionCollection = new BookCollection("Non-Fiction Collection");
-        nonFictionCollection.add(book2);
+        System.out.println(fictionBook.open());
+        System.out.println(fictionBook.close());
 
-        BookCollection library = new BookCollection("Library");
-        library.add(fictionCollection);
-        library.add(nonFictionCollection);
-
-        System.out.println(library.getDetails());
+        System.out.println(nonFictionBook.open());
+        System.out.println(nonFictionBook.close());
     }
 }
