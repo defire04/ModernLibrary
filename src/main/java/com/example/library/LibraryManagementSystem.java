@@ -3,12 +3,21 @@ package com.example.library;
 
 public class LibraryManagementSystem {
     public static void main(String[] args) {
-        Book fictionBook = new FictionBook("The Great Gatsby", 15.99);
-        Book nonFictionBook = new NonFictionBook("Sapiens: A Brief History of Humankind", 12.99);
+        BookCollection collection = new BookCollection();
+        collection.addBook(new Book("The Great Gatsby", "F. Scott Fitzgerald", 15.99));
+        collection.addBook(new Book("To Kill a Mockingbird", "Harper Lee", 12.99));
 
-        Visitor currencyConverter = new CurrencyConverter();
+        System.out.println("Initial collection:");
+        collection.printBooks();
 
-        fictionBook.accept(currencyConverter);
-        nonFictionBook.accept(currencyConverter);
+        BookCollectionMemento memento = collection.createMemento();
+
+        collection.addBook(new Book("1984", "George Orwell", 10.99));
+        System.out.println("\nAfter adding 1984:");
+        collection.printBooks();
+
+        collection.restoreMemento(memento);
+        System.out.println("\nAfter restoring memento:");
+        collection.printBooks();
     }
 }
