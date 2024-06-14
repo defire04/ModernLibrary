@@ -3,12 +3,15 @@ package com.example.library;
 
 public class LibraryManagementSystem {
     public static void main(String[] args) {
-        BookProcessor fictionProcessor = new FictionBookProcessor();
-        fictionProcessor.processBook();
+        BookStore bookStore = new BookStore();
 
-        System.out.println();
+        Customer customer1 = new Customer("Alice");
+        Customer customer2 = new Customer("Bob");
 
-        BookProcessor nonFictionProcessor = new NonFictionBookProcessor();
-        nonFictionProcessor.processBook();
+        bookStore.registerObserver(customer1);
+        bookStore.registerObserver(customer2);
+
+        Book newBook = new Book("The Great Gatsby", "F. Scott Fitzgerald");
+        bookStore.setBook(newBook);
     }
 }
