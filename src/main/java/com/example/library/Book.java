@@ -1,14 +1,18 @@
 package com.example.library;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.ToString;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@AllArgsConstructor
-@ToString
+@Getter
+@Setter
 public class Book {
-    private String title;
-    private String author;
-    private double price;
+    private BookState state;
+
+    public Book() {
+        this.state = new AvailableState();
+    }
+
+    public void handleRequest() {
+        state.handleRequest();
+    }
 }
