@@ -1,11 +1,11 @@
 package com.example.library;
 
 
-public class ConcreteBook implements Book {
+public class NonFictionBook implements Book {
     private String title;
     private String author;
 
-    public ConcreteBook(String title, String author) {
+    public NonFictionBook(String title, String author) {
         this.title = title;
         this.author = author;
     }
@@ -22,6 +22,6 @@ public class ConcreteBook implements Book {
 
     @Override
     public String getDetails() {
-        return "Title: " + title + ", Author: " + author;
+        return "Title: " + title + ", Author: " + author + ", Genre: Non-Fiction";
     }
 }
