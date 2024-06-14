@@ -1,8 +1,15 @@
 package com.example.library;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-public interface Book {
-    String getTitle();
-    String getAuthor();
-    String getDetails();
+@Data
+@AllArgsConstructor
+public class Book {
+    private String title;
+    private String author;
+    private int publicationYear;
+    private String genre;
+    private double price;
+
 }

@@ -3,9 +3,15 @@ package com.example.library;
 
 public class LibraryManagementSystem {
     public static void main(String[] args) {
-        BookFacade bookFacade = new BookFacade("The Great Gatsby", "F. Scott Fitzgerald", "Clean Code", "Robert C. Martin");
+        Handler fictionHandler = new FictionBookHandler();
+        Handler nonFictionHandler = new NonFictionBookHandler();
 
-        System.out.println("Fiction Book Details: " + bookFacade.getFictionBookDetails());
-        System.out.println("Non-Fiction Book Details: " + bookFacade.getNonFictionBookDetails());
+        fictionHandler.setNextHandler(nonFictionHandler);
+
+        Book fictionBook = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925, "Fiction", 15.99);
+        Book nonFictionBook = new Book("Clean Code", "Robert C. Martin", 2008, "Non-Fiction", 29.99);
+
+        System.out.println(fictionHandler.handleRequest(fictionBook));
+        System.out.println(fictionHandler.handleRequest(nonFictionBook));
     }
 }
